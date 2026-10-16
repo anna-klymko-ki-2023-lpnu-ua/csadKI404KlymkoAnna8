@@ -1,0 +1,8 @@
+Створи файл скіла AI-агента за шлях .github/skills/project-scaffold/SKILL.md, який відповідає за ініціалізацію базової структури Python-проєкту та налаштування середовища. 
+1. Frontmatter: name: project-scaffold, description (коли застосовувати).
+2. Вхід: language=Python, project_name=hello.
+3. Вихід: src/hello.py (друкує "Hello, World!" і використовує add), src/add.py
+(def add(a: int, b: int) -> int), порожні каталоги tests/ та docs/, README (якщо немає).
+4. Правила: не перезаписувати наявні файли; якщо файл існує і відрізняється, повідомити.
+5. Перевірки: src/hello.py існує; вказана команда запуску (python3 src/hello.py на Linux/macOS або python src\hello.py на Windows). Типова помилка: файл вже існує з іншим вмістом.
+Також додай у файл наочний приклад вхідних даних та очікуваного результату.
