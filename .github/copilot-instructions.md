@@ -6,9 +6,9 @@ cross-platform Python Hello World build agent. The primary custom agent is
 commands are the executable specification for the later project-generation
 workflow.
 
-The configuration-only `develop` branch is intended to contain agent
-configuration and documentation only. When working on that branch, do not
-create the generated project artifacts:
+The `develop` branch is configuration-only and must contain agent
+configuration and documentation only. Do not create generated project
+artifacts there:
 
 ```text
 src/
@@ -28,12 +28,23 @@ the detailed stage model and artifact hand-offs are in
 [`docs/architecture.md`](../docs/architecture.md). Keep those documents,
 the custom agent, prompts, and skills consistent when changing the workflow.
 
+Before creating generated project artifacts, inspect the current Git branch
+and [`1_context.txt`](./prompts/1_context.txt). On `feature/hello-world`, the
+generated project is in scope: `/init` may create all artifacts defined by the
+skills and must run the complete verified sequence. Keep the `develop`
+restriction only when the current branch is actually `develop`.
+
 The customization layers have distinct responsibilities: the
 [`build-engineer` agent](./agents/build-engineer.agent.md) defines the role and
 safety constraints, the [`skills/`](./skills/) define stage procedures, and
 the [`prompts/`](./prompts/) expose user-facing commands. Prefer those
 commands over manually reproducing a later stage so that prerequisite and
 artifact checks remain intact.
+
+The executable prompt sources are the named canonical `.prompt.md` files
+linked in the command documentation above. The numbered `.txt` files in the
+same directory are supporting assignment/context material; do not treat them
+as additional slash commands or as replacements for the canonical prompts.
 
 ## Workflow architecture
 
@@ -86,11 +97,15 @@ commands.
 
 ## Build, test, and validation commands
 
-The generated application and test files are not present on the current
-branch, so these commands are applicable after the build stage creates them.
-Use the repository scripts rather than reproducing their steps manually:
+The generated application and test files are created by `/init` on
+`feature/hello-world`. Use the repository scripts rather than reproducing
+their steps manually:
 
 From VS Code Copilot Chat, use `/init` for the complete verified sequence.
+If a required generated artifact is missing on `feature/hello-world`, run
+`/init` (or the first incomplete stage) before diagnosing the project as
+broken; do not bypass the staged prompts by creating later-stage files
+manually.
 Use `/git-init`, `/create-project`, `/create-build`, `/create-actions`, or
 `/check` for individual stages; `/check` is read-only and must end with
 `PASSED` before reporting the project as complete.
