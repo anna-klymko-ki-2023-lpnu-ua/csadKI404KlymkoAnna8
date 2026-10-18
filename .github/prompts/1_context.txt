@@ -1,5 +1,0 @@
-Я роблю лабораторну роботу: AI-агент для VS Code Copilot, який у репозиторії генерує кросплатформний Python проєкт Hello World (venv + скрипт запуску + pytest) і CI на GitHub Actions (Windows, Linux, macOS).
-Поточна задача в гілці develop: створюю ТІЛЬКИ інструкції агента (manifest, skills, prompts-команди, документацію).
-Важливе обмеження : не створюй src/, tests/, requirements.txt, pytest.ini, run.sh, run.bat, ci.yml, ci.sh, ci.bat: їх згенерує агент пізніше в гілці feature.
-Створюй файли по одному, коли я попрошу. 
-Мова інструкцій: українська, імена файлів і команд: англійською.
