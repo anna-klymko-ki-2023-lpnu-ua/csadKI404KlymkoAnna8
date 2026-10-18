@@ -27,6 +27,8 @@ The repository overview is in
 the detailed stage model and artifact hand-offs are in
 [`docs/architecture.md`](../docs/architecture.md). Keep those documents,
 the custom agent, prompts, and skills consistent when changing the workflow.
+Use [`docs/usage.md`](../docs/usage.md) for the user-facing command sequence
+when operating the generated project.
 
 Before creating generated project artifacts, inspect the current Git branch
 and [`1_context.txt`](./prompts/1_context.txt). On `feature/hello-world`, the
@@ -144,6 +146,10 @@ defined; do not invent one. For workflow validation, parse
 `.github/workflows/ci.yml` with an available YAML validator and verify its
 three-OS matrix, action versions, shell-specific script calls, and artifact
 upload.
+
+When the generated files already exist, use `docs/usage.md` and the checked-in
+scripts as the source of truth for local execution. Do not activate `.venv`;
+invoke its platform-specific interpreter directly.
 
 ## Change conventions
 

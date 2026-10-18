@@ -1,9 +1,0 @@
-Створи файл команди-промпта AI-агента за шляхом .github/prompts/create-build.prompt.md.
-Додай YAML frontmatter з полями description та agent: build-engineer.
-Файл повинен містити такі розділи:
-1. Передумови: наявність створених файлів src/hello.py та src/add.py.
-2. Дії: виконання інструкцій зі скіла .github/skills/build-and-test/SKILL.md.
-3. Очікувані файли на виході: requirements.txt, pytest.ini, tests/test_basic.py, run.sh, run.bat, ci.sh, ci.bat.
-4. Команди перевірки: перевірка працездатності тестів та збірки.
-5. Повідомлення про помилку: обробка можливих збоїв виконання.
-6. Ідемпотентність: забезпечення повторюваності без дублювання налаштувань.
